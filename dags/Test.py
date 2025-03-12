@@ -3,7 +3,10 @@ from datetime import datetime
 from airflow.models import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-form airflow.operators.empty import EmptyOperator
+from airflow.operators.empty import EmptyOperator
+
+def createEmptyOperator(taskId):
+        return EmptyOperator(task_id= taskId )
 
 with DAG(
     dag_id="launch_dag",
@@ -11,7 +14,7 @@ with DAG(
     end_date=datetime(year=2025, month=3, day=2),
     schedule="@daily",
 ):
-    procure_rocket_material = EmptyOperator(task_id="procure_rocket_material")
+    procure_rocket_material = createEmptyOperator("procure_rocket_material")
     procure_fuel = EmptyOperator(task_id="procure_fuel")
     build_stage_1 = EmptyOperator(task_id="build_stage_1")
     build_stage_2 = EmptyOperator(task_id="build_stage_2")
