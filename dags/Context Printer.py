@@ -1,5 +1,5 @@
 from datetime import datetime
-import pprint
+from pprint import pprint
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 
