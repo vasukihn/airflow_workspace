@@ -12,4 +12,4 @@ with DAG(
     end_date=datetime(year=2025, month=3, day=2),
     schedule="@daily",
 ):
-    procure_rocket_material = PythonOperator(task_id="demo_templating", python_callable=print_context)
+    procure_rocket_material = PythonOperator(task_id="demo_templating", python_callable=print_context())
